@@ -36,7 +36,7 @@ int main()
     while (1)
     {
         //  cetak prompt "$ "
-        puts("Ras personal terminal");
+        // puts("Ras personal terminal");
 
         //  baca string perintah
         fgets(cmd, 80, stdin);
@@ -69,10 +69,10 @@ int main()
         pid_t pid;
         char *msg;
         pid = fork();
-        {
+        if(pid == 0){
             msg = "child";
             execvp(args[0], args);
-            perror(NULL);
+            perror(args[0]);
             return -1;
         }
         wait(NULL);
